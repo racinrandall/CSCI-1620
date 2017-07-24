@@ -45,7 +45,7 @@ public class Concordance {
         }
 
         public String toString() {
-            return String.format("number: %d\nlines: %s", getNumberOfOccurrences(), getLineNumbers());
+            return String.format("\nnumber: %d\nlines: %s\n\n", getNumberOfOccurrences(), getLineNumbers());
         }
     }
 
@@ -85,10 +85,13 @@ public class Concordance {
     public static void main(String[] args) {
         for (String fileName : args) {
             try {
-                generateConcordanceForFile(fileName);
+                System.out.printf("%s:\n", fileName);
+                System.out.printf("%s\n", generateConcordanceForFile(fileName).toString());
+
             } catch (IOException error) {
                 System.out.printf("unable tp process %s\n", fileName);
             }
+
         }
     }
 }
