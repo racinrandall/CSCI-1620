@@ -19,9 +19,9 @@ public class anagram {
 
     public static void main(String[] args) {
         anagram ana = new anagram();
-        for (String fileName : args) {
-            System.out.println(fileName);
-            SortedSet<String> gram = ana.anag(fileName, "");
+        for (String arg : args) {
+            System.out.println(arg.toLowerCase());
+            SortedSet<String> gram = ana.anag(arg.toLowerCase(), "");
             System.out.printf("%s\n\n", gram);
             gram.clear();
         }
