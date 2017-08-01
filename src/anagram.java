@@ -1,11 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class anagram {
 
-    List<String> results = new ArrayList<>();
+    SortedSet<String> results = new TreeSet<>();
 
-    public List<String> anag(String s1, String s2) {
+    public SortedSet<String> anag(String s1, String s2) {
 
         if (s1.length() == 0) {
             results.add(s2);
@@ -20,7 +21,7 @@ public class anagram {
         anagram ana = new anagram();
         for (String fileName : args) {
             System.out.println(fileName);
-            List<String> gram = ana.anag(fileName, "");
+            SortedSet<String> gram = ana.anag(fileName, "");
             System.out.printf("%s\n\n", gram);
             gram.clear();
         }
