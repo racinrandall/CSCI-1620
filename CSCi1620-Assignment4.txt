@@ -1,0 +1,81 @@
+Inheritance
+
+Interface is a mechanism we can specify common operations amoung different objects
+
+
+abstract class Node{
+	private Node lhs;
+	private Node rhs;
+	
+	public Node() {
+	lsh=rhs=null;
+	}
+	public abstract int valueOf();
+	...
+	...
+}
+
+class OperandNode extends Node {
+	private String label;
+	public OperandNode(String lbl) {
+		super();
+		label=lbl;
+		}
+	public valueOf() {
+		return Integer.valueOf(label);
+		}
+}
+
+class PlusNode extends OperatorNode {
+	public PlusNode (String label) {
+		super(label)
+	}
+	public int valueOf() {
+		return lhs.valueOf() + rhs.valueOf();
+	}
+}
+
+class ExpTree {
+	private Node root;
+	public ExpTree() {
+		root = null;
+	}
+	public ExpTree(int val) {
+		root = new OperandNode(val);
+	}
+}
+
+
+
+
+
+Node x:
+...
+...
+...
+if (x instanceof OperandNode)
+	do foo
+else if (x instanceof PlusNode)
+	do bar
+	...
+	...
+	...
+	
+	
+E1 = [3, 6, 5, -, x]
+read all of E1 into a stack
+def genTree (S : stack) : Node{
+	if S.isEmpty() then
+		return null
+	else
+		obj = S.pop()
+		if isOperand(obj) then
+			return new OperandNode(obj)
+		else
+			rhs = genTree(S)
+			lhs = genTree(S)
+			root = case statement for type of operator node
+			root.lhs = lhs
+			root.rhs = rhs
+			return root
+}
