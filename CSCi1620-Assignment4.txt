@@ -1,6 +1,6 @@
 Inheritance
 
-Interface is a mechanism we can specify common operations amoung different objects
+Interface is a mechanism we can specify common operations amung different objects
 
 
 abstract class Node{
