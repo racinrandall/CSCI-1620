@@ -12,20 +12,24 @@ public class RPNCalculator {
         }
 
         public abstract int valueOf();
+        public abstract String stringValueOf();
     }
 
-    class OperandNode extends Node {
+    class OperandNode extends Node(String lbl) {
         private String label;
         public OperandNode(String lbl) {
             super();
             label=lbl;
         }
-        public valueOf() {
+        public int valueOf() {
             return Integer.valueOf(label);
+        }
+        public String stringValueOf() {
+            return label;
         }
     }
 
-    class OperatorNode {
+    abstract class OperatorNode  extends Node {
         private String label;
         public OperatorNode(String lbl) {
             super();
@@ -35,10 +39,13 @@ public class RPNCalculator {
 
     class PlusNode extends OperatorNode {
         public PlusNode (String label) {
-            super(label)
+            super(label);
         }
         public int valueOf() {
             return lhs.valueOf() + rhs.valueOf();
+        }
+        public String stringValueOf() {
+            return lhs.stringValueOf() " + " rhs.stringValueOf();
         }
     }
 
